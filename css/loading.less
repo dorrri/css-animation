@@ -1,0 +1,191 @@
+// define variables
+@shapeColor1: #5C6BC0;
+@shapeColor2: #8BC34A;
+@shapeColor3: #FFB74D;
+@shapeColor4: #F44336;
+@bgColor: #FFF;
+@secBgColor: #EEE;
+@secMargin: 10px;
+@secHeight: 300px;
+@itemWidth: 60px;
+@itemHeight: 60px;
+@shapeWidth: 20px;
+@shapeHeight: 20px;
+
+/*      default      */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: @bgColor;
+}
+
+/*      layout      */
+.content {
+  display: grid;
+  display: -ms-grid;
+  width: 80%;
+  margin: 100px auto;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: @secMargin;
+  justify-items: center;
+  align-items: center;
+
+  section {
+    display: flex;
+    width:100%;
+    min-height: @secHeight;
+    background-color: @secBgColor;
+    justify-content: center;
+    align-items: center;
+
+    .sec-item {
+      width: @itemWidth;
+      height: @itemHeight;
+      position: relative;
+
+      .shape {
+        width: @shapeWidth;
+        height: @shapeHeight;
+        position: absolute;
+
+        &.shape1 {
+          background-color: @shapeColor1;
+          left: 0;
+          top: 0;
+        }
+
+        &.shape2 {
+          background-color: @shapeColor2;
+          right: 0;
+          top: 0;
+        }
+
+        &.shape3 {
+          background-color: @shapeColor3;
+          left: 0;
+          bottom: 0;
+        }
+
+        &.shape4 {
+          background-color: @shapeColor4;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1000px)  {
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    section {
+      margin-bottom: @secMargin;
+    }
+  }
+}
+
+/*      effect      */
+.keyframes (@prefix,@name,@content) when (@prefix=def) {
+  @keyframes @name {
+    @content();
+  }
+}
+.keyframes (@prefix,@name,@content) when (@prefix=moz) {
+  @-moz-keyframes @name {
+    @content();
+  }
+}
+.keyframes (@prefix,@name,@content) when (@prefix=o) {
+  @-o-keyframes @name {
+    @content();
+  }
+}
+.keyframes (@prefix,@name,@content) when (@prefix=webkit) {
+  @-webkit-keyframes  @name{
+    @content();
+  }
+}
+.keyframes (@prefix,@name,@content) when (@prefix=all) {
+  .keyframes(moz,@name,@content);
+  .keyframes(o,@name,@content);
+  .keyframes(webkit,@name,@content);
+  .keyframes(def,@name,@content);
+}
+//创建各种浏览器内核的keyframes函数
+
+.rotation(@deg) {
+  from {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(@deg);
+    transform: rotate(@deg);
+  }
+}
+//创建旋转函数
+
+.animation (@name,@duration-time,@speed-function,@delay-time,@count,@reverse) {
+  animation: @name @duration-time @speed-function @delay-time @count @reverse;
+  -webkit-animation: @name @duration-time @speed-function @delay-time @count @reverse;
+}
+
+/*      effect 1      */
+
+.animation1 (@x,@y) {
+  from {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  to {
+    -webkit-transform: translate(@x, @y);
+    transform: translate(@x, @y);
+  }
+}
+@duration-time1:0.5s;
+@speed-function1:ease-in-out;
+@reverse:alternate;
+@delay-time:0s;
+@count:infinite;
+
+.keyframes(all,animation1-shape1,.animation1(33px,33px));
+.keyframes(all,animation1-shape2,.animation1(-33px,33px));
+.keyframes(all,animation1-shape3,.animation1(33px,-33px));
+.keyframes(all,animation1-shape4,.animation1(-33px,-33px));
+
+.effect-1 {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  .shape1 {
+    .animation(animation1-shape1,@duration-time1,@speed-function1,@delay-time,@count,@reverse);
+  }
+  .shape2 {
+    .animation(animation1-shape2,@duration-time1,@speed-function1,@delay-time,@count,@reverse);
+  }
+  .shape3 {
+    .animation(animation1-shape3,@duration-time1,@speed-function1,@delay-time,@count,@reverse);
+  }
+  .shape4 {
+    .animation(animation1-shape4,@duration-time1,@speed-function1,@delay-time,@count,@reverse);
+  }
+}
+
+/*      effect 2      */
+.keyframes(all,rotation,.rotation(360deg));
+
+.effect-2 {
+  .animation(rotation,1s,ease,0s,infinite,normal);
+  .shape {
+    border-radius: 10px;
+  }
+}
