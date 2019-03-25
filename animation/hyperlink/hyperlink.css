@@ -1,0 +1,429 @@
+/*      default      */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: "Microsoft YaHei UI", serif;
+  font-weight: bold;
+}
+body a {
+  text-decoration: none;
+  color: #444;
+  display: inline-block;
+  overflow: hidden;
+}
+body button {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: #444;
+  overflow: hidden;
+}
+body button:hover {
+  cursor: pointer;
+}
+/*      layout      */
+.content {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+.content section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 350px;
+}
+.content section:nth-child(even) {
+  background: #F1F4FA;
+}
+.content section .sec-item {
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 550px) and (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .content section:nth-child(3),
+  .content section:nth-child(7) {
+    background: #F1F4FA;
+  }
+  .content section:nth-child(4),
+  .content section:nth-child(8) {
+    background: #fff;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/*      border style      */
+/*      border style1      */
+.item-underline {
+  position: relative;
+  padding-bottom: 5px;
+}
+.item-underline::after {
+  content: "";
+  background-color: #243aab;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+/*      border style2      */
+.item-border {
+  position: relative;
+  padding: 10px;
+}
+.item-border::before {
+  content: "";
+  background-color: #243aab;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.item-border::after {
+  content: "";
+  background-color: #243aab;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.item-border span::before {
+  content: "";
+  background-color: #243aab;
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  left: 0;
+  top: 0;
+}
+.item-border span::after {
+  content: "";
+  background-color: #243aab;
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  right: 0;
+  top: 0;
+}
+/*      border style3      */
+.item-bg {
+  padding: 5px;
+  position: relative;
+  color: #fff;
+  transition: color 0.5s;
+}
+.item-bg::before,
+.item-bg::after {
+  content: "";
+  background-color: #243aab;
+  position: absolute;
+  opacity: 1;
+}
+.item-bg:hover {
+  color: #444;
+}
+/*      effect       */
+/*      effect 1      */
+.item-effect-1::after {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+}
+.item-effect-1:hover::after {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+/*      effect 2      */
+.item-effect-2::after {
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+}
+.item-effect-2:hover::after {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+/*      effect 3      */
+.item-effect-3::after,
+.item-effect-3::before,
+.item-effect-3 span::before,
+.item-effect-3 span::after {
+  opacity: 1;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+.item-effect-3:hover::before,
+.item-effect-3:hover::after,
+.item-effect-3:hover span::before,
+.item-effect-3:hover span::after {
+  opacity: 0;
+}
+.item-effect-3:hover::before {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.item-effect-3:hover::after {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  -o-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.item-effect-3:hover span::before {
+  -webkit-transform: translate3d(0, -100%, 0);
+  -moz-transform: translate3d(0, -100%, 0);
+  -ms-transform: translate3d(0, -100%, 0);
+  -o-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.item-effect-3:hover span::after {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+/*      effect 4      */
+.item-effect-4::after,
+.item-effect-4::before,
+.item-effect-4 span::before,
+.item-effect-4 span::after {
+  opacity: 1;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+.item-effect-4:hover::before,
+.item-effect-4:hover::after,
+.item-effect-4:hover span::before,
+.item-effect-4:hover span::after {
+  opacity: 0;
+}
+.item-effect-4:hover::before {
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.item-effect-4:hover::after {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  -o-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+.item-effect-4:hover span::before {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+.item-effect-4:hover span::after {
+  -webkit-transform: translate3d(0, -100%, 0);
+  -moz-transform: translate3d(0, -100%, 0);
+  -ms-transform: translate3d(0, -100%, 0);
+  -o-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+/*      effect 5      */
+.item-effect-5::after,
+.item-effect-5::before,
+.item-effect-5 span::before,
+.item-effect-5 span::after {
+  opacity: 1;
+  transition: transform 0.1s ease-out, -webkit-transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+.item-effect-5::before {
+  transition-delay: 0s;
+}
+.item-effect-5 span::after {
+  transition-delay: 0.05s;
+}
+.item-effect-5::after {
+  transition-delay: 0.1s;
+}
+.item-effect-5 span::before {
+  transition-delay: 0.15s;
+}
+.item-effect-5:hover::before,
+.item-effect-5:hover::after,
+.item-effect-5:hover span::before,
+.item-effect-5:hover span::after {
+  opacity: 0;
+}
+.item-effect-5:hover::before {
+  -webkit-transform: translate3d(-105%, 0, 0);
+  -moz-transform: translate3d(-105%, 0, 0);
+  -ms-transform: translate3d(-105%, 0, 0);
+  -o-transform: translate3d(-105%, 0, 0);
+  transform: translate3d(-105%, 0, 0);
+  transition-delay: 0.15s;
+}
+.item-effect-5:hover::after {
+  -webkit-transform: translate3d(105%, 0, 0);
+  -moz-transform: translate3d(105%, 0, 0);
+  -ms-transform: translate3d(105%, 0, 0);
+  -o-transform: translate3d(105%, 0, 0);
+  transform: translate3d(105%, 0, 0);
+  transition-delay: 0.05s;
+}
+.item-effect-5:hover span::before {
+  -webkit-transform: translate3d(0, 105%, 0);
+  -moz-transform: translate3d(0, 105%, 0);
+  -ms-transform: translate3d(0, 105%, 0);
+  -o-transform: translate3d(0, 105%, 0);
+  transform: translate3d(0, 105%, 0);
+  transition-delay: 0s;
+}
+.item-effect-5:hover span::after {
+  -webkit-transform: translate3d(0, -105%, 0);
+  -moz-transform: translate3d(0, -105%, 0);
+  -ms-transform: translate3d(0, -105%, 0);
+  -o-transform: translate3d(0, -105%, 0);
+  transform: translate3d(0, -105%, 0);
+  transition-delay: 0.1s;
+}
+/*      effect 6      */
+.item-effect-6::before,
+.item-effect-6::after {
+  width: 51%;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+.item-effect-6::before {
+  left: 0;
+}
+.item-effect-6::after {
+  right: 0;
+}
+.item-effect-6 span {
+  position: relative;
+  z-index: 5;
+}
+.item-effect-6:hover::before {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+.item-effect-6:hover::after {
+  opacity: 0;
+  -webkit-transform: translate3d(105%, 0, 0);
+  -moz-transform: translate3d(105%, 0, 0);
+  -ms-transform: translate3d(105%, 0, 0);
+  -o-transform: translate3d(105%, 0, 0);
+  transform: translate3d(105%, 0, 0);
+}
+/*      effect 7      */
+.item-effect-7::before,
+.item-effect-7::after {
+  width: 100%;
+  height: 50%;
+  left: 0;
+  z-index: 0;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out, opacity 0.4s ease-out;
+}
+.item-effect-7::before {
+  top: 0;
+}
+.item-effect-7::after {
+  bottom: 0;
+}
+.item-effect-7 span {
+  position: relative;
+  z-index: 5;
+}
+.item-effect-7:hover::before {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  -moz-transform: translate3d(0, -100%, 0);
+  -ms-transform: translate3d(0, -100%, 0);
+  -o-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.item-effect-7:hover::after {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+/*      effect 8      */
+.item-effect-8::before,
+.item-effect-8::after {
+  width: 51%;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out, opacity 0.4s ease-out;
+}
+.item-effect-8::before {
+  left: 0;
+}
+.item-effect-8::after {
+  right: 0;
+}
+.item-effect-8 span {
+  position: relative;
+  z-index: 5;
+}
+.item-effect-8:hover::before,
+.item-effect-8:hover::after {
+  opacity: 0;
+  transform: rotate(360deg);
+}
+/*      effect 9      */
+.item-effect-9::before,
+.item-effect-9::after {
+  width: 51%;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out, opacity 0.4s ease-out;
+}
+.item-effect-9::before {
+  left: 0;
+}
+.item-effect-9::after {
+  right: 0;
+}
+.item-effect-9 span {
+  position: relative;
+  z-index: 5;
+}
+.item-effect-9:hover::before {
+  opacity: 0;
+  transform: translateX(-100%) rotate(45deg);
+}
+.item-effect-9:hover::after {
+  opacity: 0;
+  transform: translateX(100%) rotate(45deg);
+}
+/*# sourceMappingURL=hyperlink.css.map */
