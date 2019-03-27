@@ -1,0 +1,251 @@
+//define variables
+@lineColor:#555;
+@buttonColorLow:#f1c40f;
+@mountainColor:#94c6e7;
+
+@lineWidth:3px;
+
+/*      defaults       */
+body{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/*      layout       */
+.switch {
+  #switch-button {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 32px;
+    border: 2px solid @lineColor;
+    border-radius: 30px;
+    cursor: pointer;
+    #circle {
+      margin-top: 2px;
+      margin-left: 2px;
+      width:26px;
+      height: 24px;
+      border:2px solid @lineColor;
+      border-radius: 50%;
+      box-shadow: 4px -1px @buttonColorLow inset;
+    }
+  }
+  span {
+    display: inline-block;
+    line-height: 34px;
+    font-size: 12px;
+    vertical-align: top;
+  }
+}
+
+.content {
+  width:500px;
+  height: 400px;
+  position: relative;
+  margin: 20px auto;
+  border: 2px solid @lineColor;
+  overflow: hidden;
+}
+
+/*      shape       */
+.transform-rotate(@x){
+  transform: rotate(@x);
+  -webkit-transform: rotate(@x);
+}
+/*      sun       */
+.sun {
+  position: absolute;
+  width:20px;
+  height: 20px;
+  border: 2px solid @lineColor;
+  border-radius: 30px;
+  top:70px;
+  right:150px;
+  z-index: 1;
+  span {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background-color: @lineColor;
+    right:12px;
+    bottom:25px;
+    box-shadow: 4px 3px @buttonColorLow;
+    transform-origin: 4px 30px;
+    &:nth-child(2) {
+      .transform-rotate(45deg);
+    }
+    &:nth-child(3) {
+      .transform-rotate(90deg);
+    }
+    &:nth-child(4) {
+      .transform-rotate(135deg);
+    }
+    &:nth-child(5) {
+      .transform-rotate(180deg);
+    }
+    &:nth-child(6) {
+      .transform-rotate(225deg);
+    }
+    &:nth-child(7) {
+      .transform-rotate(270deg);
+    }
+    &:nth-child(8) {
+      .transform-rotate(315deg);
+    }
+  }
+}
+
+/*      mountains       */
+.mountain1 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: @lineWidth solid @lineColor;
+  .transform-rotate(45deg);
+  left: 14%;
+  bottom: 30%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    top: -@lineWidth;
+    left: 16px;
+    box-shadow: -6px -6px @mountainColor;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    left: 0;
+    top: 14px;
+    transform-origin: left top;
+    .transform-rotate(90deg);
+  }
+}
+
+.mountain2 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: @lineWidth solid @lineColor;
+  .transform-rotate(45deg);
+  left: 33%;
+  bottom: 37%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    top: -@lineWidth;
+    left: 16px;
+    box-shadow: -6px -6px @mountainColor;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    left: 0;
+    top: 14px;
+    transform-origin: left top;
+    .transform-rotate(90deg);
+  }
+}
+
+.mountain3 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: @lineWidth solid @lineColor;
+  .transform-rotate(45deg);
+  left: 55%;
+  bottom: 45%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    top: -@lineWidth;
+    left: 16px;
+    box-shadow: -10px -6px @mountainColor;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    left: 0;
+    top: 14px;
+    transform-origin: left top;
+    .transform-rotate(90deg);
+  }
+}
+
+.mountain4 {
+  position: absolute;
+  .transform-rotate(45deg);
+  left: 69%;
+  bottom: 43%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    top: 0;
+    left: 0;
+    box-shadow: 6px 6px @mountainColor;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    left: 0;
+    top: 0;
+    transform-origin: left top;
+    .transform-rotate(90deg);
+  }
+}
+
+.mountain5 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: @lineWidth solid @lineColor;
+  .transform-rotate(45deg);
+  left: 80%;
+  bottom: 35%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    top: -@lineWidth;
+    left: 16px;
+    box-shadow: 6px 6px @mountainColor;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: @lineWidth;
+    background-color: @lineColor;
+    left: 0;
+    top: 14px;
+    transform-origin: left top;
+    .transform-rotate(90deg);
+  }
+}
