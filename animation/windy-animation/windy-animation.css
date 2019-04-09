@@ -1,0 +1,248 @@
+/*      defaults       */
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/*      layout       */
+.switch #switch-button {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 32px;
+  border: 2px solid #555;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.switch #switch-button #circle {
+  margin-top: 2px;
+  margin-left: 2px;
+  width: 26px;
+  height: 24px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  box-shadow: 4px -1px #f1c40f inset;
+}
+.switch span {
+  display: inline-block;
+  line-height: 34px;
+  font-size: 12px;
+  vertical-align: top;
+}
+.content {
+  width: 500px;
+  height: 400px;
+  position: relative;
+  margin: 20px auto;
+  border: 2px solid #555;
+  overflow: hidden;
+}
+/*      shape       */
+/*      sun       */
+.sun {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 30px;
+  top: 70px;
+  right: 150px;
+  z-index: 1;
+}
+.sun span {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background-color: #555;
+  right: 12px;
+  bottom: 25px;
+  box-shadow: 4px 3px #f1c40f;
+  transform-origin: 4px 30px;
+}
+.sun span:nth-child(2) {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.sun span:nth-child(3) {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.sun span:nth-child(4) {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.sun span:nth-child(5) {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+.sun span:nth-child(6) {
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+}
+.sun span:nth-child(7) {
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+}
+.sun span:nth-child(8) {
+  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+}
+/*      mountains       */
+.mountain1 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #555;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  left: 14%;
+  bottom: 30%;
+}
+.mountain1:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: #555;
+  top: -3px;
+  left: 16px;
+  box-shadow: -6px -6px #94c6e7;
+}
+.mountain1:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: #555;
+  left: 0;
+  top: 14px;
+  transform-origin: left top;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.mountain2 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #555;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  left: 33%;
+  bottom: 37%;
+}
+.mountain2:before {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 3px;
+  background-color: #555;
+  top: -3px;
+  left: 16px;
+  box-shadow: -6px -6px #94c6e7;
+}
+.mountain2:after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 3px;
+  background-color: #555;
+  left: 0;
+  top: 14px;
+  transform-origin: left top;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.mountain3 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #555;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  left: 55%;
+  bottom: 45%;
+}
+.mountain3:before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 3px;
+  background-color: #555;
+  top: -3px;
+  left: 16px;
+  box-shadow: -10px -6px #94c6e7;
+}
+.mountain3:after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 3px;
+  background-color: #555;
+  left: 0;
+  top: 14px;
+  transform-origin: left top;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.mountain4 {
+  position: absolute;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  left: 69%;
+  bottom: 43%;
+}
+.mountain4:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: #555;
+  top: 0;
+  left: 0;
+  box-shadow: 6px 6px #94c6e7;
+}
+.mountain4:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  background-color: #555;
+  left: 0;
+  top: 0;
+  transform-origin: left top;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+.mountain5 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #555;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  left: 80%;
+  bottom: 35%;
+}
+.mountain5:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 3px;
+  background-color: #555;
+  top: -3px;
+  left: 16px;
+  box-shadow: 6px 6px #94c6e7;
+}
+.mountain5:after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: #555;
+  left: 0;
+  top: 14px;
+  transform-origin: left top;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+/*# sourceMappingURL=windy-animation.css.map */
