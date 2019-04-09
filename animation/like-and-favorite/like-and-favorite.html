@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Like&Favorite</title>
+    <style>
+        .main {
+            display: flex;
+            width: 100%;
+            height: 500px;
+            justify-content: center;
+        }
+        .content {
+            display: flex;
+            width: 50%;
+            justify-content: space-around;
+        }
+        .like, .favor {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .like {
+            color: #E2264D;
+        }
+        .favor {
+            color: #FFAC33;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            background: url("web_heart_animation.png") left no-repeat;
+        }
+        .star {
+            width:64px;
+            height: 64px;
+            cursor: pointer;
+            background: url("twitter_fave_rectangle.png") left no-repeat;
+        }
+        @keyframes heartEffect {
+            0% {
+                background-position: left;
+            }
+            100% {
+                background-position: right;
+            }
+        }
+        @-webkit-keyframes heartEffect {
+            0% {
+                background-position: left;
+            }
+            100% {
+                background-position: right;
+            }
+        }
+        .likeAnima {
+            animation: heartEffect .8s steps(28) 0s 1 forwards;
+            -webkit-animation: heartEffect .8s steps(28) 0s 1 forwards;
+        }
+        .favorAnima {
+            animation: heartEffect .8s steps(55) 0s 1 forwards;
+            -webkit-animation: heartEffect .8s steps(55) 0s 1 forwards;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="content">
+        <div class="like ">
+            <span>Like</span>
+            <div class="heart" id="heart"></div>
+        </div>
+        <div class="favor">
+            <span>Favorite</span>
+            <div class="star" id="star"></div>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload=function () {
+		let heart=document.getElementById('heart');
+		let star=document.getElementById('star');
+		heart.addEventListener('click',()=>{animation(heart,'likeAnima')},false);
+		star.addEventListener('click',()=>{animation(star,'favorAnima')},false);
+
+		function animation(ele,className) {
+            if (ele.classList.contains(className)){
+            	ele.classList.remove(className);
+            } else {
+            	ele.classList.add(className);
+            }
+		}
+	}
+</script>
+</body>
+</html>
